@@ -12,7 +12,8 @@ package soldadospatroncommand;
  */
 public class ButtonHandler implements Button {
     private final String ButtonId;
-
+    
+    
     public ButtonHandler(String ButtonId) {
         this.ButtonId = ButtonId;
     }

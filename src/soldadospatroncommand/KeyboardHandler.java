@@ -6,50 +6,33 @@
 
 package soldadospatroncommand;
 
+import PatronCommand.Command;
+
 /**
  * @author Antonio Miguel Martel
- * 
- * 
- * 
  */
 public class KeyboardHandler {
     private final Button buttonW = new ButtonHandler("W");
     private final Button buttonA = new ButtonHandler("A");
     private final Button buttonS = new ButtonHandler("S");
     private final Button buttonD = new ButtonHandler("D");
-
-    public KeyboardHandler() {
+    Command buttonWCommand, buttonACommand, buttonSCommand, buttonDCommand;
+    
+    //Le entran los Commandos que se asocian a cada boton
+    public KeyboardHandler(Command buttonWCommand, Command buttonACommand, Command buttonSCommand, Command buttonDCommand) {
+        this.buttonWCommand = buttonWCommand;
+        this.buttonACommand = buttonACommand;
+        this.buttonSCommand = buttonSCommand;
+        this.buttonDCommand = buttonDCommand;
     }
     
-    //Esto es horroroso. 
-    //Se emplean consultas y son mejores disparadores (interrupciones)
-    //Esto esta fijo y no se puede cambiar cuando quiera
+    
+    //Se separo ya la logica de los botones
     void getInput() {
-        if (this.buttonW.isPressed()) moveUp();
-        else if (this.buttonA.isPressed()) moveLeft();
-        else if (this.buttonS.isPressed()) moveDown();
-        else if (this.buttonD.isPressed()) moveRight();
+        if (this.buttonW.isPressed()) this.buttonWCommand.execute();
+        else if (this.buttonA.isPressed()) this.buttonWCommand.execute();
+        else if (this.buttonS.isPressed()) this.buttonWCommand.execute();
+        else if (this.buttonD.isPressed()) this.buttonWCommand.execute();
     }
-    
-    
-    //Es inteligente que el mando decida que pasa cuando se mueven los soladidots?
-    // Por la carisima el mando tmb sabe 
-    private void moveUp() {
-        
-    }
-
-    private void moveDown() {
-        
-    }
-
-    private void moveRight() {
-    
-    }
-
-    private void moveLeft() {
-    
-    }
-    
-    
     
 }
